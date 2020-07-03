@@ -1,11 +1,14 @@
 package com.aigner.similarity;
 
+import com.aigner.FuzzyHandler;
+
 import java.util.Arrays;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class CosineSimilarity {
+public class CosineSimilarity implements FuzzyHandler {
 
+  @Override
   public void handle(String term, String query) {
     org.apache.commons.text.similarity.CosineSimilarity similarity = new org.apache.commons.text.similarity.CosineSimilarity();
 

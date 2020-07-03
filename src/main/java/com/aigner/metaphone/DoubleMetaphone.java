@@ -1,18 +1,11 @@
 package com.aigner.metaphone;
 
-import org.apache.commons.codec.EncoderException;
+import com.aigner.FuzzyHandler;
 
-import java.util.Locale;
+public class DoubleMetaphone implements FuzzyHandler {
 
-public class DoubleMetaphone {
-
-  private final Locale localeToUse;
-
-  public DoubleMetaphone(Locale localeToUse) {
-    this.localeToUse = localeToUse;
-  }
-
-  public void handle(String term, String query) throws EncoderException {
+  @Override
+  public void handle(String term, String query) {
     org.apache.commons.codec.language.DoubleMetaphone metaphone = new org.apache.commons.codec.language.DoubleMetaphone();
     var m1 = metaphone.encode(term);
     var m2 = metaphone.encode(query);

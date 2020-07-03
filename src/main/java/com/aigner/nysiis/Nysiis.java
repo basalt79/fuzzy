@@ -1,18 +1,13 @@
 package com.aigner.nysiis;
 
-import org.apache.commons.codec.EncoderException;
+import com.aigner.FuzzyHandler;
 
-public class Nysiis {
+public class Nysiis implements FuzzyHandler {
 
-  private final boolean strict;
-
-  public Nysiis(boolean strict) {
-    this.strict = strict;
-  }
-
-  public void handle(String term, String query) throws EncoderException {
-    org.apache.commons.codec.language.Nysiis nysiis = new org.apache.commons.codec.language.Nysiis(strict);
-    System.out.println("Nysiis (" + strict + ") ... '" + term + "'('" + nysiis.encode(term) + "') -> '" + query + "'(" + nysiis.encode(query) + "')' ==> ");
+  @Override
+  public void handle(String term, String query) {
+    org.apache.commons.codec.language.Nysiis nysiis = new org.apache.commons.codec.language.Nysiis();
+    System.out.println("Nysiis ... '" + term + "'('" + nysiis.encode(term) + "') -> '" + query + "'(" + nysiis.encode(query) + "')' ==> ");
   }
 
 }
